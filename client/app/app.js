@@ -3,6 +3,7 @@ window.app = angular.module('shortly', [
   'shortly.links',
   'shortly.shorten',
   'shortly.auth',
+  'shortly.navigation',
   'ngRoute',
   'ui.router'
 ])
@@ -57,6 +58,12 @@ window.app = angular.module('shortly', [
   };
   return attach;
 })
+.directive('navigation', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'app/navigation/navigation.html'
+  }
+})
 .run(function ($rootScope, $location, Auth, $state) {
   // here inside the run phase of angular, our services and controllers
   // have just been registered and our app is ready
@@ -76,4 +83,4 @@ window.app = angular.module('shortly', [
       $state.go('signin');
     }
   });
-});
+})

@@ -1,15 +1,22 @@
+<navigation></navigation>
+
 <div id='addLink'>
 <!-- Your code here -->
-  <div class='navigation'>
-    <ul>
-      <li><a href='#/links' class='index'>All Links</a></li>
-      <li><a href='#/shorten' class='create'>Shorten</a></li>
-    </ul>
-    <a href='#/logout' class='logout'>Logout</a>
-  </div>
   <form name="linkForm" ng-submit='addLink()'>
     <input name='url' type='url' ng-model='link.url'>
     <button>Add Link</button>
   </form>
+</div>
+
+<div class="links">
+  <div class="link" ng-repeat="link in currentLink | orderBy : '-visits' | filter : linkFilter" >
+  <img src="/assets/redirect_icon.png">
+    <div class="info">
+      <div class="visits"><span class="count">{{link.visits}}</span>Visits</div>
+        <div class="title">{{link.title}}</div>
+          <div class="original">{{link.url}}</div>
+        <a href="{{link.base_url + '/' + link.code}}">{{link.base_url + '/' + link.code}}</a>
+    </div>
+  </div>
 </div>
 

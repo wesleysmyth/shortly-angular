@@ -8,6 +8,8 @@ angular.module('shortly.navigation', [])
       // $scope.showNavigation = (state === 'links' || state === 'shorten');
       //
       //
-    $scope.message = $state
+    $scope.signout = function () {
+      Auth.signout();
+    };
 
 }]);
