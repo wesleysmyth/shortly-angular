@@ -15,4 +15,5 @@ module.exports = function (app) {
 
   app.get('/:code', linksController.navToLink);
 
+
 };

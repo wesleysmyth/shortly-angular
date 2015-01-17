@@ -7,8 +7,9 @@
 </div>
 
 <div id="container">
+  <input type="text" ng-model="linkFilter">
   <div class="links">
-    <div class="link" ng-repeat='link in data.links'>
+    <div class="link" ng-repeat="link in data.links | orderBy : '-visits' | filter : linkFilter" >
     <img src="/assets/redirect_icon.png">
       <div class="info">
         <div class="visits"><span class="count">{{link.visits}}</span>Visits</div>

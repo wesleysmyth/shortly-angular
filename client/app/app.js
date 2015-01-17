@@ -8,8 +8,8 @@ window.app = angular.module('shortly', [
 ])
 
 .config(
-  [         '$stateProvider', '$httpProvider',
-    function($stateProvider,   $httpProvider) {
+  [         '$stateProvider', '$httpProvider', '$urlRouterProvider',
+    function($stateProvider,   $httpProvider,   $urlRouterProvider) {
 
     $stateProvider
      .state("signin", {
@@ -32,6 +32,8 @@ window.app = angular.module('shortly', [
         templateUrl: 'app/shorten/shorten.html',
         controller: 'ShortenController'
       });
+
+    $urlRouterProvider.otherwise('/links');
 
 
     // We add our $httpInterceptor into the array
