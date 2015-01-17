@@ -1,18 +1,29 @@
 body {
   margin: 0;
+  padding: 0px 20px;
   margin-top: 10px;
   font-family: arial, sans-serif;
 }
-
+img.logo {
+  display: inline;
+  float: left;
+}
 a {
   color: #333;
   font-size: 14px;
   text-decoration: none;
 }
+div.header {
+  position: relative;
+  height: 120px;
+  color: #0084FF;
+}
 
-h1 {
+div.header h1 {
   font-style: italic;
   margin-bottom: 10px;
+  top:50px;
+  position: relative;
 }
 
 .navigation {
