@@ -1,10 +1,15 @@
 <div id='addLink'>
 <!-- Your code here -->
-  <h1>Shorten Link</h1>
+  <div class='navigation'>
+    <ul>
+      <li><a href='#/links' class='index'>All Links</a></li>
+      <li><a href='#/shorten' class='create'>Shorten</a></li>
+    </ul>
+    <a href='#/logout' class='logout'>Logout</a>
+  </div>
   <form name="linkForm" ng-submit='addLink()'>
     <input type='text' ng-model='link.url'>
     <button>Add Link</button>
   </form>
 </div>
-
 

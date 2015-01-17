@@ -7,7 +7,7 @@ angular.module('shortly.links', [])
 
   $scope.init = function() {
     $scope.getLinks();
-  }
+  };
 
   $scope.getLinks = function() {
     Links.getLinks()
