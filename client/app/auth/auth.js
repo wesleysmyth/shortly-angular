@@ -12,7 +12,7 @@ angular.module('shortly.auth', [])
     Auth.signin($scope.user)
       .then(function (token) {
         $window.localStorage.setItem('com.shortly', token);
-        $state.go('links');
+        $state.go('nav.links');
       })
       .catch(function (error) {
         console.error(error);
@@ -23,7 +23,7 @@ angular.module('shortly.auth', [])
     Auth.signup($scope.user)
       .then(function (token) {
         $window.localStorage.setItem('com.shortly', token);
-        $state.go('links');
+        $state.go('nav.links');
       })
       .catch(function (error) {
         console.error(error);

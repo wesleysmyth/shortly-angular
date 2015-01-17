@@ -18,20 +18,28 @@ window.app = angular.module('shortly', [
         templateUrl: 'app/auth/signin.html',
         controller: 'AuthController'
       })
-     .state("signup", {
+     .state('signup', {
         url: "/signup",
         templateUrl: 'app/auth/signup.html',
-        controller: 'AuthController'
+        controller: 'AuthController',
       })
-     .state("links", {
+     .state('nav', {
+        url: '/nav',
+        abstract: true,
+        templateUrl:'app/navigation/navigation.html',
+        controller: 'NavigationController'
+     })
+     .state("nav.links", {
         url: "/links",
         templateUrl: 'app/links/links.html',
-        controller: 'LinksController'
+        controller: 'LinksController',
+        needsAuthentication: true
       })
-     .state("shorten", {
+     .state("nav.shorten", {
         url: "/shorten",
         templateUrl: 'app/shorten/shorten.html',
-        controller: 'ShortenController'
+        controller: 'ShortenController',
+        needsAuthentication: true
       });
 
     $urlRouterProvider.otherwise('/signin');
@@ -73,8 +81,8 @@ window.app = angular.module('shortly', [
   // and send that token to the server to see if it is a real user or hasn't expired
   // if it's not valid, we then redirect back to signin/signup
   $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-    console.log('toState: ', toState.name, 'fromState: ', fromState.name, event)
-    if ((toState.name === 'links' || toState.name === 'shorten') && !Auth.isAuth()) { //(toState.name === 'links' || toState.name === 'shorten') &&
+    console.log('toState: ', toState)
+    if (toState.needsAuthentication && !Auth.isAuth()) { //(toState.name === 'links' || toState.name === 'shorten') &&
       console.log('route to signin');
       event.preventDefault();
       // console.log($state);

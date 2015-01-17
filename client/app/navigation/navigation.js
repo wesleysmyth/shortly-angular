@@ -12,4 +12,6 @@ angular.module('shortly.navigation', [])
       Auth.signout();
     };
 
+    console.log($state.current)
+
 }]);
